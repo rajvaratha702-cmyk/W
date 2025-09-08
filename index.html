@@ -1,0 +1,324 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Varatharaj | Frontend Developer</title>
+  <meta name="description" content="Portfolio of Varatharaj — Frontend & Web Developer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f1724; /* deep navy */
+      --card: #0f1b2b;
+      --muted: #94a3b8;
+      --accent: #4f46e5;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 16px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#071023);color:#e6eef8}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:32px}/* header */
+header{backdrop-filter: blur(6px);position:sticky;top:12px;padding:8px;border-radius:12px;background:linear-gradient(180deg,var(--glass),transparent);margin-bottom:22px}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:grid;place-items:center;font-weight:700}
+nav a{margin-left:16px;font-weight:600;color:var(--muted)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:12px}
+.intro h1{font-size: clamp(28px,4vw,44px);margin:0 0 8px}
+.intro p{color:var(--muted);line-height:1.6}
+.cta{margin-top:20px;display:flex;gap:12px}
+.btn{padding:10px 16px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#06b6d4);box-shadow:0 6px 18px rgba(79,70,229,0.18)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+/* profile card */
+.card{background:linear-gradient(180deg,var(--card),#071022);padding:18px;border-radius:16px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+.avatar{width:100%;height:100%;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#123, #012)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* sections */
+section{margin-top:28px}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.section-title h3{margin:0}
+.grid{display:grid;gap:16px}
+
+/* skills */
+.skills{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.skill{padding:12px;border-radius:12px;background:var(--glass-2);text-align:center}
+
+/* projects */
+.projects{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.project{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);transition:transform .28s ease, box-shadow .28s}
+.project:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+.project h4{margin:8px 0 6px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03)}
+
+/* gallery */
+.gallery{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.gallery img{width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.4);transition:transform .3s ease}
+.gallery img:hover{transform:scale(1.05)}
+.upload{margin-top:16px}
+input[type="file"]{padding:8px;background:var(--glass-2);border-radius:10px;color:var(--muted);border:1px solid rgba(255,255,255,0.08)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form input, form textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+form button{margin-top:8px}
+
+/* footer */
+footer{margin-top:44px;padding:20px;text-align:center;color:var(--muted);font-size:14px}
+
+/* responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr}
+  nav a{display:none}
+}
+
+/* subtle animations */
+.fade-up{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+.fade-up.visible{opacity:1;transform:none}
+
+/* small helpers */
+.muted{color:var(--muted)}
+.row{display:flex;gap:12px;align-items:center}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="logo">VR</div>
+          <div>
+            <div style="font-weight:700">Varatharaj</div>
+            <div class="muted" style="font-size:12px">Frontend Developer</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header><main>
+  <!-- Hero section -->
+  <section class="hero">
+    <div class="intro">
+      <h1 class="fade-up">Hi — I'm <span style="color:var(--accent)">Varatharaj</span>.</h1>
+      <p class="fade-up">Passionate frontend developer turning ideas into clean, modern, and impactful digital experiences. I build responsive websites and user interfaces with attention to performance and design.</p>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="mailto:rajvaratha702@gmail.com">Hire Me</a>
+      </div>
+
+      <div style="margin-top:18px;color:var(--muted);font-size:14px">
+        <strong>Location:</strong> Tiruppur · <strong>Email:</strong> <a href="mailto:rajvaratha702@gmail.com">rajvaratha702@gmail.com</a>
+      </div>
+    </div>
+
+    <aside class="card fade-up" style="width:100%">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div style="width:84px;height:84px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,var(--accent),#06b6d4);display:grid;place-items:center;font-weight:700;font-size:22px">VR</div>
+        <div>
+          <div style="font-weight:700">Varatharaj P</div>
+          <div class="muted">Frontend / UI Developer</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <div class="tag">HTML</div>
+        <div class="tag">CSS</div>
+        <div class="tag">JavaScript</div>
+        <div class="tag">React</div>
+      </div>
+
+      <div style="margin-top:12px;font-size:13px;color:var(--muted)">3+ years experience · 100+ projects</div>
+    </aside>
+  </section>
+
+  <!-- About section -->
+  <section id="about" class="fade-up">
+    <div class="section-title">
+      <h3>About</h3>
+    </div>
+    <div class="card" style="padding:18px">
+      <p class="muted">I create fast, accessible, and visually appealing web interfaces. My focus is on writing maintainable code, intuitive UX, and pixel-perfect UI. I enjoy collaborating with product teams and turning user problems into elegant solutions.</p>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <div class="tag">B.Sc Computer Science</div>
+        <div class="tag">3 years experience</div>
+        <div class="tag">100+ projects</div>
+        <div class="tag">10 awards</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills section -->
+  <section id="skills" class="fade-up">
+    <div class="section-title"><h3>Skills</h3></div>
+    <div class="grid skills">
+      <div class="skill card">
+        <strong>HTML & CSS</strong>
+        <div class="muted">Semantic markup, responsive layout, animations</div>
+      </div>
+      <div class="skill card">
+        <strong>JavaScript</strong>
+        <div class="muted">DOM, fetch, ES6+, tooling</div>
+      </div>
+      <div class="skill card">
+        <strong>Frameworks</strong>
+        <div class="muted">React, Next.js basics</div>
+      </div>
+      <div class="skill card">
+        <strong>Design</strong>
+        <div class="muted">Figma to code, UI patterns</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects section -->
+  <section id="projects" class="fade-up">
+    <div class="section-title"><h3>Selected Projects</h3></div>
+    <div class="grid projects">
+      <!-- Example Project -->
+      <article class="project card">
+        <div style="height:140px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#0b1220,#12314a);display:grid;place-items:center">Screenshot</div>
+        <h4>Portfolio Website</h4>
+        <p class="muted">Personal portfolio showcasing projects, animations, and contact form.</p>
+        <div class="tags" style="margin-top:10px">
+          <div class="tag">HTML</div><div class="tag">CSS</div><div class="tag">JS</div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <button class="https://github.com/rajvaratha702-cmyk/N.gitonclick="openProject('https://github.com/')">View</button>
+          <button class="btn btn-ghost" onclick="openProject('https://github.com/')">Source</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Gallery section with upload option -->
+  <section id="gallery" class="fade-up">
+    <div class="section-title"><h3>Image Gallery</h3></div>
+    <div class="grid gallery" id="gallery-grid">
+      <img src="v.jpg" alt="Sample work 1">
+      <img src="https://via.placeholder.com/400x250" alt="Sample work 2">
+    </div>
+    <div class="upload">
+      <label class="muted">Upload an image:</label><br>
+      <input type="file" accept="image/*" onchange="previewImage(event)" />
+    </div>
+  </section>
+      <!-- Resume section -->
+<section id="resume" class="fade-up">
+  <div class="section-title"><h3>Resume</h3></div>
+  <div class="card" style="text-align:center;  padding:24px">
+    <p class="muted">Download my resume to learn more about my education, skills, and experience.</p>
+    <a class="btn btn-primary" href="r.jpg" download>📄 Download Resume</a>
+  </div>
+</section>
+      <!-- Certificates section -->
+<section id="certificates" class="fade-up">
+  <div class="section-title"><h3>Certificates</h3></div>
+  <div class="grid gallery">
+    <!-- Example certificate cards -->
+    <div class="card" style="text-align:center; padding:16px">
+      <img src="n.jpg" alt="Certificate 1" style="width:100%; border-radius:12px; margin-bottom:10px">
+      <h4>Web Development</h4>
+      <a class="btn btn-primary" href="cert1.jpg" download>Download</a>
+    </div>
+
+    <div class="card" style="text-align:center; padding:16px">
+      <img src="m.jpg" alt="Certificate 2" style="width:100%; border-radius:12px; margin-bottom:10px">
+      <h4>JavaScript Advanced</h4>
+      <a class="btn btn-primary" href="cert2.jpg" download>Download</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Contact section -->
+  <section id="contact" class="fade-up">
+    <div class="section-title"><h3>Contact</h3></div>
+    <div class="card contact-grid">
+      <div>
+        <h4>Get in touch</h4>
+        <p class="muted">Email me at <a href="mailto:rajvaratha702@gmail.com">rajvaratha702@gmail.com</a> or call <a href="tel:+919965151642">+91 99651 51642</a></p>
+        <p class="muted">Available: Mon–Fri 09:00–17:00</p>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <a class="btn btn-primary" href="mailto:rajvaratha702@gmail.com">Email</a>
+          <a class="btn btn-ghost" href="#projects">See Work</a>
+        </div>
+      </div>
+
+      <form onsubmit="submitForm(event)">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <button class="btn btn-primary" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Varatharaj · Built with ❤️ · Tiruppur
+  </footer>
+</main>
+
+  </div>  <script>
+    // small helpers
+    function qs(sel){return document.querySelector(sel)}
+    function qsa(sel){return document.querySelectorAll(sel)}
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear()
+
+    // open project (placeholder)
+    function openProject(url){ window.open(url, '_blank') }
+
+    // simple form handler
+    function submitForm(e){
+      e.preventDefault();
+      const f = e.target;
+      const name = encodeURIComponent(f.name.value.trim());
+      const email = encodeURIComponent(f.email.value.trim());
+      const message = encodeURIComponent(f.message.value.trim());
+      const subject = encodeURIComponent('Portfolio contact from ' + (name || email));
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+      window.location.href = 'mailto:rajvaratha702@gmail.com?subject=' + subject + '&body=' + body;
+    }
+
+    // reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting) ent.target.classList.add('visible')
+      })
+    },{threshold:0.12})
+    document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el))
+
+    // preview uploaded image
+    function previewImage(event){
+      const file = event.target.files[0];
+      if(file){
+        const reader = new FileReader();
+        reader.onload = function(e){
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.alt = 'Uploaded image';
+          document.getElementById('gallery-grid').appendChild(img);
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  </script></body>
+</html>
